@@ -28,7 +28,8 @@ public class Conexion {
             Class.forName(Driver);
             com= DriverManager.getConnection(url, user, password);
             if(com !=null){
-                JOptionPane.showMessageDialog(null,"conexion establecida","atencion",JOptionPane.INFORMATION_MESSAGE);
+                System.out.println("atencion--conexion establecida");
+                //JOptionPane.showMessageDialog(null,"conexion establecida","atencion",JOptionPane.INFORMATION_MESSAGE);
             }
         }catch (ClassNotFoundException| SQLException e){
             JOptionPane.showMessageDialog(null,"error del tipo "+e,"peligro",JOptionPane.WARNING_MESSAGE);
@@ -42,7 +43,8 @@ public class Conexion {
     public void Desconectar () {
         com = null;
         if (com == null){
-            JOptionPane.showMessageDialog(null,"conexion terminada","importante",JOptionPane.OK_OPTION);
+            System.out.println("importante--conexion terminada");
+            //JOptionPane.showMessageDialog(null,"conexion terminada","importante",JOptionPane.OK_OPTION);
         }
     }
 }
