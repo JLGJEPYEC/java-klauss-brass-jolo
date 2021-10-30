@@ -47,7 +47,7 @@ public class PanelRol extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        AgregarRoles = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -83,10 +83,10 @@ public class PanelRol extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Agregar mas Roles");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AgregarRoles.setText("Agregar Roles");
+        AgregarRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AgregarRolesActionPerformed(evt);
             }
         });
 
@@ -114,7 +114,7 @@ public class PanelRol extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(AgregarRoles)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2))))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -131,7 +131,7 @@ public class PanelRol extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(AgregarRoles))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(69, Short.MAX_VALUE))
@@ -180,7 +180,7 @@ public class PanelRol extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AgregarRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRolesActionPerformed
         extraccion_tablas et = new extraccion_tablas();
         UsuarioVSRoles ur = new UsuarioVSRoles();
         ur.setIduser(Integer.parseInt(et.FilaSeleccionadaID(jTable1.getSelectedRow(), "idUser", "usuario")));
@@ -188,7 +188,7 @@ public class PanelRol extends javax.swing.JPanel {
         tabla_vs_usuario_roles.add(ur);
         jTextField1.setText("");
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AgregarRolesActionPerformed
 
     
 
@@ -198,7 +198,7 @@ public class PanelRol extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton AgregarRoles;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

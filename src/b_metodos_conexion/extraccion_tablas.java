@@ -83,6 +83,11 @@ public class extraccion_tablas {
         }
         return h;
     }
+    
+    
+    
+    
+    
         public ArrayList<requerimiento> elementos_requerimiento (){
         int n=0;
         ArrayList <requerimiento> lista_reqs = new ArrayList<requerimiento>();
@@ -174,27 +179,32 @@ public class extraccion_tablas {
         return lista_reqs;
     }
    
-   public ArrayList<requerimiento> RequerimientoJefeCalidad(){
-       ArrayList <requerimiento> lista_r = new ArrayList<requerimiento>();
-       requerimiento r = null;
+   public ArrayList<ProduccionVSRequerimientos> lista_prod_vs_req_JC(){
+       ArrayList <ProduccionVSRequerimientos> lista_r = new ArrayList<ProduccionVSRequerimientos>();
+       ProduccionVSRequerimientos r = null;
        try{
            Conexion c = new Conexion();
-           ps = c.getConexion().prepareStatement("select idrequerimiento, "
-                   + "nombreReq, descripcion, fechaEntrega, nombre_emp, "
-                   + "calidadReq, cantidad_productos "
-                   + "from requerimiento");
+           ps = c.getConexion().prepareStatement("select idProduccion, "
+                   + "fechaProduccion, urgencia, nombreReq, descripcion, "
+                   + "fechaEntrega, nombre_emp, calidadReq, cantidad_productos "
+                   + "from produccion "
+                   + "inner join requerimiento "
+                   + "on produccion.idrequerimiento=requerimiento.idrequerimiento "
+                   + "where estadoProduccion=\"en Produccion\"");
            rs = ps.executeQuery();
            while(rs.next()){
-               r = new requerimiento (rs.getInt(1),
-                                      rs.getString(2),
+               r = new ProduccionVSRequerimientos (rs.getInt(1),
+                                      rs.getDate(2).toString(),
                                       rs.getString(3),
-                                      rs.getDate(4).toString(),
+                                      rs.getString(4),
                                       rs.getString(5),
-                                      rs.getString(6),
-                                      rs.getDouble(7)
+                                     rs.getDate(6).toString(),
+                                      rs.getString(7),
+                                      rs.getString(8),
+                                      rs.getDouble(9)
                                       );
                lista_r.add(r);
-           }
+           } 
            c.Desconectar();
        }catch (Exception e){
            e.printStackTrace();

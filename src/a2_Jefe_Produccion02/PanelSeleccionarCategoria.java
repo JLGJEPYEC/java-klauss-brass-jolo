@@ -130,15 +130,21 @@ public class PanelSeleccionarCategoria extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        extraccion_tablas et = new extraccion_tablas();
+       //este metodo extrae el id de la fila seleccionada en la tabla mostrada aqui
        String filaSeleccionada = et.FilaSeleccionadaID(jTable1.getSelectedRow(),"idCategoria","categoria");
+       //se modifica el texto estatico para no desaparecer el objeto creado
        PanelPreparar.textoCatSeleccionada =filaSeleccionada;
-        PanelPreparar pn = new PanelPreparar();
-       // pn.setTextoParaIDRequerimiento(getIdProduccion());
-        pn.setSize(500,500);
-        pn.setLocation(10,10);
-
+       /*principal jefe produccion actualmente tiene abierto dentro del panel principal
+       al jpanel invocado desde los botones del lado
+       OSEA, EL PRINCIPAL
+       esto evita que al panelprincipal se le agregue un objeto nuevo
+       deshaciendo todos los cambios efectuados
+       */
+       PrincipalJefeProduccion.pn.setSize(500,500);
+       PrincipalJefeProduccion.pn.setLocation(10,10);     
         panelPrincipal.removeAll();
-        panelPrincipal.add(pn,BorderLayout.CENTER);
+        //aqui se evidencia que se quiere volver a mostar el jpanel ya abierto anteriormente
+        panelPrincipal.add(PrincipalJefeProduccion.pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed

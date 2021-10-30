@@ -9,19 +9,23 @@ import b_modelos.requerimiento;
 import b_modelos.user;
 import java.util.ArrayList;
 
+import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
+import b_modelos_para_tablas.ProduccionVSRequerimientos;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author jolo
  */
 public class PanelSeleccionarProduccion extends javax.swing.JPanel {
-    private ArrayList<requerimiento> Requerimientos = new ArrayList<requerimiento>();
+    private ArrayList<ProduccionVSRequerimientos> pvr = new ArrayList<ProduccionVSRequerimientos>();
     extraccion_tablas et = new extraccion_tablas();
     /**
      * Creates new form PanelSeleccionarProduccion
      */
     public PanelSeleccionarProduccion() {
         initComponents();
-        Requerimientos= et.RequerimientoJefeCalidad();
+        pvr = et.lista_prod_vs_req_JC();
     }
 
     /**
@@ -36,6 +40,8 @@ public class PanelSeleccionarProduccion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -52,17 +58,17 @@ public class PanelSeleccionarProduccion extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id Req", "Nombre Req", "Descripcion", "Fecha entrega", "Nombre empresa", "Calidad", "Cantidad prod."
+                "PRODUCCION", "Fecha Produc", "Urgencia", "REQUERIMIENTO", "Descripcion", "Fecha entrega", "Nombre empresa", "Calidad", "Cantidad prod."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -72,27 +78,43 @@ public class PanelSeleccionarProduccion extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
             jTable1.getColumnModel().getColumn(6).setResizable(false);
+            jTable1.getColumnModel().getColumn(7).setResizable(false);
+            jTable1.getColumnModel().getColumn(8).setResizable(false);
         }
+
+        jButton1.setText("Seleccionar producción");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jButton2)
+                .addGap(366, 366, 366)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(126, 126, 126))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(207, 207, 207))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,33 +123,86 @@ public class PanelSeleccionarProduccion extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton2)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
-        int n= Requerimientos.size();
-        String [][] arreglo = new String [n][7];
+        int n= pvr.size();
+        String [][] arreglo = new String [n][9];
         for (int i = 0; i < n; i++) {
-            arreglo[i][0]=String.valueOf(Requerimientos.get(i).getId_requerimiento());
-            arreglo[i][1]=Requerimientos.get(i).getNombre_req();
-            arreglo[i][2]=Requerimientos.get(i).getDescripcion();
-            arreglo[i][3]=Requerimientos.get(i).getFechaDeEntrega();
-            arreglo[i][4]=Requerimientos.get(i).getNombre_emp();
-            arreglo[i][5]=Requerimientos.get(i).getCalidad_req();
-            arreglo[i][6]=String.valueOf(Requerimientos.get(i).getCantidad_productos());
+            arreglo[i][0]=String.valueOf(pvr.get(i).getIdProduccion());
+            arreglo[i][1]=pvr.get(i).getFechaProduccion();
+            arreglo[i][2]=pvr.get(i).getUrgencia();
+            arreglo[i][3]=pvr.get(i).getNomReq();
+            arreglo[i][4]=pvr.get(i).getDescripcion();
+            arreglo[i][5]=pvr.get(i).getFechaEntrega();
+            arreglo[i][6]=pvr.get(i).getNombre_emp();
+            arreglo[i][7]=pvr.get(i).getCalidad_req();
+            arreglo[i][8]=String.valueOf(pvr.get(i).getCantidadproductos());
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             arreglo,
             new String [] {
-        "Id Req", "Nombre Req", "Descripcion", "Fecha entrega", "Nombre empresa", "Calidad", "Cantidad prod."
+                "PRODUCCION", 
+                "Fecha Produc", 
+                "Urgencia", 
+                "REQUERIMIENTO", 
+                "Descripcion", 
+                "Fecha entrega", 
+                "Nombre empresa", 
+                "Calidad", 
+                "Cantidad prod."
     }
         ));
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        extraccion_tablas et = new extraccion_tablas();
+       //este metodo extrae el id de la fila seleccionada en la tabla mostrada aqui
+       String condicion = "produccion.idrequerimiento=requerimiento.idrequerimiento "
+               + "where estadoProduccion=\"en Produccion\"";
+       String filaSeleccionada = et.FilaSeleccionadaID(jTable1.getSelectedRow(),
+               "idProduccion","produccion","requerimiento",condicion);
+       //se modifica el texto estatico para no desaparecer el objeto creado
+       PanelDesginarInspectorCalidad.IDProduccionJC=filaSeleccionada;
+       /*principal jefe CALIDAD actualmente tiene abierto dentro del panel principal
+       al jpanel invocado desde los botones del lado
+       OSEA, EL PRINCIPAL
+       esto evita que al panelprincipal se le agregue un objeto nuevo
+       deshaciendo todos los cambios efectuados
+       */
+       PrincipalJefeCalidad.pn.setSize(500,500);
+       PrincipalJefeCalidad.pn.setLocation(10,10);       
+       panelPrincipal.removeAll();
+       //aqui se evidencia que se quiere volver a mostar el jpanel ya abierto anteriormente
+       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+        
+        
+        PrincipalJefeCalidad.pn.setSize(500,500);
+       PrincipalJefeCalidad.pn.setLocation(10,10);       
+       panelPrincipal.removeAll();
+       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

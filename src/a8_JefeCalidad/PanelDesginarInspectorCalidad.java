@@ -11,7 +11,8 @@ import java.awt.BorderLayout;
  * @author juan-jolo
  */
 public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
-
+    public static String IDProduccionJC ="";
+    public static String IDInspectorJC = "";
     /**
      * Creates new form PanelDesginarInspectorCalidad
      */
@@ -31,11 +32,21 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        TextoIDP = new javax.swing.JTextField();
+        TextoI = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         SeleccionarProduccionJC = new javax.swing.JButton();
         SeleccionarInspectorJC = new javax.swing.JButton();
+
+        addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                formAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel1.setText("Designar inspector de calidad");
 
@@ -83,11 +94,11 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextoIDP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(SeleccionarProduccionJC, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextoI, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(SeleccionarInspectorJC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -100,12 +111,12 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoIDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SeleccionarProduccionJC))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SeleccionarInspectorJC))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -146,14 +157,23 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
+    //ANTES DE MOSTRARSE EL JPANEL, SE HARÁN AJUSTES
+    //ESTE METODO SIRVE PARA ESO
+    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
+        TextoI.setText(IDInspectorJC);
+        TextoIDP.setText(IDProduccionJC);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formAncestorAdded
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SeleccionarInspectorJC;
     private javax.swing.JButton SeleccionarProduccionJC;
+    private javax.swing.JTextField TextoI;
+    private javax.swing.JTextField TextoIDP;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

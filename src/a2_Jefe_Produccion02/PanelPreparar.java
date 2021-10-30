@@ -54,7 +54,7 @@ public class PanelPreparar extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TextoIDR = new javax.swing.JTextField();
         SeleccionarRequerimientos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         AsignarRoles = new javax.swing.JButton();
@@ -68,7 +68,7 @@ public class PanelPreparar extends javax.swing.JPanel {
         CrearProduccion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTextField2 = new javax.swing.JTextField();
+        TextoCP = new javax.swing.JTextField();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -137,12 +137,6 @@ public class PanelPreparar extends javax.swing.JPanel {
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,7 +158,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TextoIDR, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(28, 28, 28)
                                         .addComponent(SeleccionarRequerimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -181,7 +175,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoCP, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(SeleccionarCatProd)))
                 .addContainerGap())
@@ -199,7 +193,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(SeleccionarRequerimientos)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextoIDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -220,7 +214,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SeleccionarCatProd)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextoCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CrearProduccion)
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -287,14 +281,14 @@ public class PanelPreparar extends javax.swing.JPanel {
        panelPrincipal.repaint();
     }//GEN-LAST:event_AsignarCritCalidadActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
+    
+    
+    //ANTES DE MOSTRARSE EL JPANEL, SE HARÁN AJUSTES
+    //ESTE METODO SIRVE PARA ESO
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         // TODO add your handling code here:
-        jTextField1.setText(textoParaIDRequerimiento);
-        jTextField2.setText(textoCatSeleccionada);
+        TextoIDR.setText(textoParaIDRequerimiento);
+        TextoCP.setText(textoCatSeleccionada);
 
     }//GEN-LAST:event_formAncestorAdded
 
@@ -304,8 +298,8 @@ public class PanelPreparar extends javax.swing.JPanel {
         //System.out.println(jDateChooser1.getDate());
         String f = gestion_fechas.obtenerFecha(jDateChooser1.getDate());
         
-        Produccion p = new Produccion(Integer.parseInt(jTextField1.getText()),
-                Integer.parseInt(jTextField2.getText()), f, s);
+        Produccion p = new Produccion(Integer.parseInt(TextoIDR.getText()),
+                Integer.parseInt(TextoCP.getText()), f, s);
         p.guardarBBDD();
         //sacar id produccion}
         extraccion_tablas et= new extraccion_tablas();
@@ -343,6 +337,8 @@ public class PanelPreparar extends javax.swing.JPanel {
     private javax.swing.JButton CrearProduccion;
     private javax.swing.JButton SeleccionarCatProd;
     private javax.swing.JButton SeleccionarRequerimientos;
+    public static javax.swing.JTextField TextoCP;
+    public static javax.swing.JTextField TextoIDR;
     private javax.swing.JComboBox<String> jComboBox1;
     public static com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -353,7 +349,5 @@ public class PanelPreparar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JTextField jTextField1;
-    public static javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
