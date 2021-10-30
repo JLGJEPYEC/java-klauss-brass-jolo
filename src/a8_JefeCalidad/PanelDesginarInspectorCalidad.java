@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-//cus completado
-
-
+/*
+TERCER CASO DE USO IMPORTANTE DEL SISTEMA - 
+PROCESO DE NEGOCIO: GESTION DE REQUERIMIENTOS DEL CLIENTE
+*/
 package a8_JefeCalidad;
 import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
 import b_modelos.criteriosDeCalidad;
