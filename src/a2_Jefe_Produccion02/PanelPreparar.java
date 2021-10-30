@@ -54,17 +54,17 @@ public class PanelPreparar extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        SeleccionarRequerimientos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        AsignarRoles = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        AsignarCritCalidad = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        SeleccionarCatProd = new javax.swing.JButton();
+        CrearProduccion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jTextField2 = new javax.swing.JTextField();
@@ -81,28 +81,28 @@ public class PanelPreparar extends javax.swing.JPanel {
 
         jLabel2.setText("ID requerimiento");
 
-        jButton1.setText("Seleccionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SeleccionarRequerimientos.setText("Seleccionar");
+        SeleccionarRequerimientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SeleccionarRequerimientosActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Trabajadores");
 
-        jButton2.setText("Asignar roles");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        AsignarRoles.setText("Asignar roles");
+        AsignarRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AsignarRolesActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Criterios de calidad");
 
-        jButton3.setText("Asignar criterios de calidad");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AsignarCritCalidad.setText("Asignar criterios de calidad");
+        AsignarCritCalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AsignarCritCalidadActionPerformed(evt);
             }
         });
 
@@ -114,17 +114,17 @@ public class PanelPreparar extends javax.swing.JPanel {
 
         jLabel7.setText("Categoria de produccion");
 
-        jButton4.setText("Seleccionar Categoria");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        SeleccionarCatProd.setText("Seleccionar Categoria");
+        SeleccionarCatProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                SeleccionarCatProdActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Crear Produccion");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        CrearProduccion.setText("Crear Produccion");
+        CrearProduccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                CrearProduccionActionPerformed(evt);
             }
         });
 
@@ -156,7 +156,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(AsignarRoles)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
@@ -165,7 +165,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(28, 28, 28)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(SeleccionarRequerimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -173,7 +173,7 @@ public class PanelPreparar extends javax.swing.JPanel {
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AsignarCritCalidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -182,11 +182,11 @@ public class PanelPreparar extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(SeleccionarCatProd)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
-                .addComponent(jButton5)
+                .addComponent(CrearProduccion)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,16 +197,16 @@ public class PanelPreparar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1)
+                    .addComponent(SeleccionarRequerimientos)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton2))
+                    .addComponent(AsignarRoles))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton3))
+                    .addComponent(AsignarCritCalidad))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -218,10 +218,10 @@ public class PanelPreparar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
+                    .addComponent(SeleccionarCatProd)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
+                .addComponent(CrearProduccion)
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -243,7 +243,7 @@ public class PanelPreparar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void SeleccionarCatProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarCatProdActionPerformed
        PanelSeleccionarCategoria pn = new PanelSeleccionarCategoria();
        pn.setSize(500,500);
        pn.setLocation(10,10);
@@ -251,9 +251,9 @@ public class PanelPreparar extends javax.swing.JPanel {
        panelPrincipal.add(pn,BorderLayout.CENTER);
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_SeleccionarCatProdActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void SeleccionarRequerimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarRequerimientosActionPerformed
        PanelSeleccionar pn = new PanelSeleccionar();
        pn.setSize(500,500);
        pn.setLocation(10,10);
@@ -262,9 +262,9 @@ public class PanelPreparar extends javax.swing.JPanel {
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_SeleccionarRequerimientosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void AsignarRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarRolesActionPerformed
        PanelRol pn = new PanelRol();
        pn.setSize(500,500);
        pn.setLocation(10,10);
@@ -273,9 +273,9 @@ public class PanelPreparar extends javax.swing.JPanel {
        panelPrincipal.add(pn,BorderLayout.CENTER);
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_AsignarRolesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AsignarCritCalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarCritCalidadActionPerformed
        PanelCriterios pn = new PanelCriterios();
        pn.setSize(500,500);
        pn.setLocation(10,10);
@@ -284,7 +284,7 @@ public class PanelPreparar extends javax.swing.JPanel {
        panelPrincipal.add(pn,BorderLayout.CENTER);
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AsignarCritCalidadActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -297,9 +297,10 @@ public class PanelPreparar extends javax.swing.JPanel {
 
     }//GEN-LAST:event_formAncestorAdded
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void CrearProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearProduccionActionPerformed
         //generar id produccion
         String s = jComboBox1.getSelectedItem().toString();
+        //System.out.println(jDateChooser1.getDate());
         String f = gestion_fechas.obtenerFecha(jDateChooser1.getDate());
         
         Produccion p = new Produccion(Integer.parseInt(jTextField1.getText()),
@@ -326,7 +327,7 @@ public class PanelPreparar extends javax.swing.JPanel {
         }
         
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_CrearProduccionActionPerformed
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
         // TODO add your handling code here:
@@ -334,11 +335,11 @@ public class PanelPreparar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton AsignarCritCalidad;
+    private javax.swing.JButton AsignarRoles;
+    private javax.swing.JButton CrearProduccion;
+    private javax.swing.JButton SeleccionarCatProd;
+    private javax.swing.JButton SeleccionarRequerimientos;
     private javax.swing.JComboBox<String> jComboBox1;
     public static com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
