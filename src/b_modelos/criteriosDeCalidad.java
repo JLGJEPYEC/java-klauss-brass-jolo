@@ -15,6 +15,23 @@ import java.sql.SQLException;
  */
 public class criteriosDeCalidad {
 
+    /**
+     * @return the InspectorID
+     */
+    public int getInspectorID() {
+        return InspectorID;
+    }
+
+    /**
+     * @param InspectorID the InspectorID to set
+     */
+    public void setInspectorID(int InspectorID) {
+        this.InspectorID = InspectorID;
+    }
+    
+    
+    private int InspectorID;
+
     public int getId_produccion() {
         return id_produccion;
     }
@@ -41,6 +58,13 @@ public class criteriosDeCalidad {
         this.nombre_criterio = nombre_criterio;
         this.esAceptable = esAceptable;
     }
+
+    public criteriosDeCalidad(int InspectorID, int id_produccion ) {
+        this.InspectorID = InspectorID;
+        this.id_produccion = id_produccion;
+    }
+    
+    
    
    
    
@@ -83,15 +107,30 @@ public class criteriosDeCalidad {
             // TODO add your handling code here:
             Conexion c = new Conexion();
             PreparedStatement ps = c.getConexion().prepareStatement("insert into "
-                    + "criteriocalidad (nombreCrit,esAceptable,idProduccion) "
-                    + "values  (?,?,?)");
+                    + "criteriocalidad (nombreCrit,esAceptable,idProduccion,observacion) "
+                    + "values  (?,?,?,?)");
             ps.setString(1, nombre_criterio);
             ps.setBoolean(2, false);
             ps.setInt(3,id_produccion);
+            ps.setString(4, "aun no es revizada por algun inspector");
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
    }
+    
+    public void modificarBBDD_IDI(){
+        try {
+            // TODO add your handling code here:
+            Conexion c = new Conexion();
+            PreparedStatement ps = c.getConexion().prepareStatement("update criteriocalidad "
+                    + "set IDInspector = ? where idProduccion= ?");
+            ps.setInt(1, InspectorID);
+            ps.setInt(2, id_produccion);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }

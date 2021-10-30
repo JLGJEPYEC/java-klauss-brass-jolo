@@ -5,6 +5,7 @@
  */
 package a8_JefeCalidad;
 import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
+import b_modelos.criteriosDeCalidad;
 import java.awt.BorderLayout;
 /**
  *
@@ -50,7 +51,7 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
 
         jLabel1.setText("Designar inspector de calidad");
 
-        jLabel2.setText("ID Producción");
+        jLabel2.setText("ID Produccion");
 
         jLabel3.setText("Inspector");
 
@@ -61,7 +62,7 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
             }
         });
 
-        SeleccionarProduccionJC.setText("Seleccionar producción");
+        SeleccionarProduccionJC.setText("Seleccionar produccion");
         SeleccionarProduccionJC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeleccionarProduccionJCActionPerformed(evt);
@@ -148,7 +149,13 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
     }//GEN-LAST:event_SeleccionarInspectorJCActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+        //acciones que ejecuta el boton tal cual
+        
+        int numInspector = Integer.parseInt(TextoI.getText());
+        int numIDProduccion = Integer.parseInt(TextoIDP.getText());
+        criteriosDeCalidad cc = new criteriosDeCalidad(numInspector,numIDProduccion);
+        cc.modificarBBDD_IDI();
+        //reestruccturacion del jpanel
        panelPrincipal.removeAll();
        panelPrincipal.revalidate();
        panelPrincipal.repaint();

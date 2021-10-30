@@ -84,7 +84,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID Producci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="ID Produccion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -106,7 +106,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="SeleccionarProduccionJC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Seleccionar producci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar produccion"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SeleccionarProduccionJCActionPerformed"/>

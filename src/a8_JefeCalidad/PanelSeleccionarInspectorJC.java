@@ -5,8 +5,10 @@
  */
 package a8_JefeCalidad;
 
+import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
 import b_metodos_conexion.extraccion_tablas;
 import b_modelos.user;
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 /**
@@ -37,6 +39,8 @@ public class PanelSeleccionarInspectorJC extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -66,21 +70,41 @@ public class PanelSeleccionarInspectorJC extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setText("Seleccionar Inspector");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(105, 105, 105)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(69, 69, 69)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +116,11 @@ public class PanelSeleccionarInspectorJC extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,8 +143,55 @@ public class PanelSeleccionarInspectorJC extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        panelPrincipal.removeAll();
+       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        extraccion_tablas et = new extraccion_tablas();
+       //este metodo extrae el id de la fila seleccionada en la tabla mostrada aqui
+       String condicion = "where tipoUsuario=\"Inspector Calidad\"";
+       String filaSeleccionada = et.FilaSeleccionadaID(jTable1.getSelectedRow(),
+               "idUser","usuario"+" "+condicion);
+       //se modifica el texto estatico para no desaparecer el objeto creado
+       PanelDesginarInspectorCalidad.IDInspectorJC=filaSeleccionada;
+       /*principal jefe CALIDAD actualmente tiene abierto dentro del panel principal
+       al jpanel invocado desde los botones del lado
+       OSEA, EL PRINCIPAL
+       esto evita que al panelprincipal se le agregue un objeto nuevo
+       deshaciendo todos los cambios efectuados
+       */
+       PrincipalJefeCalidad.pn.setSize(500,500);
+       PrincipalJefeCalidad.pn.setLocation(10,10);       
+       
+       panelPrincipal.removeAll();
+       //aqui se evidencia que se quiere volver a mostar el jpanel ya abierto anteriormente
+       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+        
+        
+        PrincipalJefeCalidad.pn.setSize(500,500);
+       PrincipalJefeCalidad.pn.setLocation(10,10);       
+       panelPrincipal.removeAll();
+       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
