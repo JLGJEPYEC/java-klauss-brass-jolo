@@ -8,13 +8,14 @@ package a8_JefeCalidad;
 import a0_login.frmLogin;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author juan-jolo
  */
 public class PrincipalJefeCalidad extends javax.swing.JFrame {
-
+    public static JPanel pn = null;
     /**
      * Creates new form PrincipalJefeCalidad
      */
@@ -35,11 +36,16 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        DesignarInspectorCalidad = new javax.swing.JButton();
+        DesignarProdPC = new javax.swing.JButton();
+        RevizarCC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         panelPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -48,11 +54,11 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 619, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jButton10.setText("Cerrar Sesión ");
@@ -66,27 +72,27 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Asistente de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 18)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jefe de calidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 18)));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Designar inspector de calidad");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        DesignarInspectorCalidad.setText("Designar inspector de calidad");
+        DesignarInspectorCalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DesignarInspectorCalidadActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Designar productos a pasar control");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        DesignarProdPC.setText("Designar productos a pasar control");
+        DesignarProdPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                DesignarProdPCActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Revizar cumplimiento de criterios");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        RevizarCC.setText("Revizar cumplimiento de criterios");
+        RevizarCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                RevizarCCActionPerformed(evt);
             }
         });
 
@@ -97,20 +103,20 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DesignarProdPC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DesignarInspectorCalidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RevizarCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
+                .addComponent(DesignarInspectorCalidad)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(DesignarProdPC)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(RevizarCC)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -135,33 +141,33 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 779, Short.MAX_VALUE)
+            .addGap(0, 943, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton10)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton10))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(55, 55, 55)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(175, 191, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(105, 105, 105))
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(107, 107, 107)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(94, 94, 94)))
+                    .addGap(11, 11, 11)
+                    .addComponent(jButton10)
+                    .addGap(18, 18, 18)
+                    .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -179,40 +185,44 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void DesignarInspectorCalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesignarInspectorCalidadActionPerformed
 
-        PanelDesginarInspectorCalidad pn = new PanelDesginarInspectorCalidad();
+        pn = new PanelDesginarInspectorCalidad();
         pn.setSize(500,500);
         pn.setLocation(10,10);
         panelPrincipal.removeAll();
         panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_DesignarInspectorCalidadActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void DesignarProdPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesignarProdPCActionPerformed
         // TODO add your handling code here:
-        PanelDesignarProductosControl mo = new PanelDesignarProductosControl();
-        mo.setSize(500,500);
-        mo.setLocation(10,10);
+        pn = new PanelDesignarProductosControl();
+        pn.setSize(500,500);
+        pn.setLocation(10,10);
 
         panelPrincipal.removeAll();
-        panelPrincipal.add(mo,BorderLayout.CENTER);
+        panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_DesignarProdPCActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        PanelRevizarCumplimientoCriterios mo = new PanelRevizarCumplimientoCriterios();
-        mo.setSize(500,500);
-        mo.setLocation(10,10);
+    private void RevizarCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RevizarCCActionPerformed
+        pn = new PanelRevizarCumplimientoCriterios();
+        pn.setSize(500,500);
+        pn.setLocation(10,10);
 
         panelPrincipal.removeAll();
-        panelPrincipal.add(mo,BorderLayout.CENTER);
+        panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_RevizarCCActionPerformed
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formPropertyChange
 
     /**
      * @param args the command line arguments
@@ -250,10 +260,10 @@ public class PrincipalJefeCalidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton DesignarInspectorCalidad;
+    private javax.swing.JButton DesignarProdPC;
+    private javax.swing.JButton RevizarCC;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel panelPrincipal;

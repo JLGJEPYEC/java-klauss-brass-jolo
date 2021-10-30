@@ -1,10 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a2_Jefe_Produccion02;
 
+
+/*
+SEGUNDO CASO DE USO IMPORTANTE DEL SISTEMA - 
+PROCESO DE NEGOCIO: GESTION DE REQUERIMIENTOS DEL CLIENTE
+*/
 import static a2_Jefe_Produccion02.PrincipalJefeProduccion.panelPrincipal;
 import b_metodos_conexion.extraccion_tablas;
 import com.toedter.calendar.JCalendar;
@@ -325,7 +326,9 @@ public class PanelPreparar extends javax.swing.JPanel {
             cr.guardarBBDD();
             
         }
-        
+        panelPrincipal.removeAll();
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
         // TODO add your handling code here:
     }//GEN-LAST:event_CrearProduccionActionPerformed
 

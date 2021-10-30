@@ -15,6 +15,7 @@ import b_modelos.categorias_prod;
 import b_modelos.Produccion;
 import b_modelos_para_tablas.ProduccionVSRequerimientos;
 import java.util.Date;
+import b_metodos_conexion.gestion_fechas;
 
 /**
  *
@@ -64,7 +65,7 @@ public class extraccion_tablas {
         return h;
     }
    
-        public  String FilaSeleccionadaID (int n,String nombreCampoID,String Tabla, String join, String cond){
+    public  String FilaSeleccionadaID (int n,String nombreCampoID,String Tabla, String join, String cond){
         String h="";
         try{
             Conexion c = new Conexion();
@@ -122,7 +123,9 @@ public class extraccion_tablas {
         return lista_cats;
     }
 
-    
+    /* NO SE VA A USAR ---- REEMPLAZADO POR "TIPOSDEUSUARIO(STRING S) DONDE S
+        ES EL VALOR DEL WHERE SQL
+        
     public ArrayList<user> operarios_produccion(){
         int n=0;
         ArrayList <user> lista_reqs = new ArrayList<user>();
@@ -143,6 +146,64 @@ public class extraccion_tablas {
         }
         return lista_reqs;
     }
+    */
+   
+   public ArrayList<user> TipoDeUsuariosDeseados(String tipou){
+        int n=0;
+        ArrayList <user> lista_reqs = new ArrayList<user>();
+        user temp_user = null;
+        try{
+            Conexion c = new Conexion();
+            ps = c.getConexion().prepareStatement("select idUser,Nombre1,"
+                    + "Nombre2,ApellidoP,ApellidoM from "
+                    + "usuario where tipoUsuario=\""+tipou+"\"");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                temp_user=new user(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getString(3),
+                                    rs.getString(4),
+                                    rs.getString(5));
+                lista_reqs.add(temp_user);
+            }
+            c.Desconectar();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return lista_reqs;
+    }
+   
+   public ArrayList<requerimiento> RequerimientoJefeCalidad(){
+       ArrayList <requerimiento> lista_r = new ArrayList<requerimiento>();
+       requerimiento r = null;
+       try{
+           Conexion c = new Conexion();
+           ps = c.getConexion().prepareStatement("select idrequerimiento, "
+                   + "nombreReq, descripcion, fechaEntrega, nombre_emp, "
+                   + "calidadReq, cantidad_productos "
+                   + "from requerimiento");
+           rs = ps.executeQuery();
+           while(rs.next()){
+               r = new requerimiento (rs.getInt(1),
+                                      rs.getString(2),
+                                      rs.getString(3),
+                                      rs.getDate(4).toString(),
+                                      rs.getString(5),
+                                      rs.getString(6),
+                                      rs.getDouble(7)
+                                      );
+               lista_r.add(r);
+           }
+           c.Desconectar();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       return lista_r;
+   }
+   
+  
+   
     
     public ArrayList<ProduccionVSRequerimientos> lista_prod_vs_req(){
         int n=0;

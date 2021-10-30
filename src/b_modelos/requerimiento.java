@@ -18,6 +18,8 @@ import java.util.logging.Logger;
 public class requerimiento {
    private int id_requerimiento;
 
+   
+   //CONSTRUCTOR PARA AÑADIR TODOS LOS DATOS DE REQUERIMEINTOS A LA BBDD
     public requerimiento(String nombre_req, String descripcion, String fechaDeEntrega, double pagoEstimado, String RUCEmpresa, String nombre_emp, String calidad_req, String compromiso_pago, String fecha_registro, double cantidad_productos) {
         this.nombre_req = nombre_req;
         this.descripcion = descripcion;
@@ -31,6 +33,7 @@ public class requerimiento {
         this.cantidad_productos = cantidad_productos;
     }
 
+    //CONSTRUCTOR PARA USARSE CON JEFE DE PRODUCCION - DATOS FINANCIEROS
     public requerimiento(int id_requerimiento, String nombre_req, double pagoEstimado, String RUCEmpresa) {
         this.id_requerimiento = id_requerimiento;
         this.nombre_req = nombre_req;
@@ -38,6 +41,21 @@ public class requerimiento {
         this.RUCEmpresa = RUCEmpresa;
     }
 
+    //CONSTRUCTOR PARA USARSE CON JEFE DE CALIDAD
+    
+    public requerimiento(int id_requerimiento, String nombre_req, String descripcion, String fechaDeEntrega, String nombre_emp, String calidad_req, double cantidad_productos) {
+        this.id_requerimiento = id_requerimiento;
+        this.nombre_req = nombre_req;
+        this.descripcion = descripcion;
+        this.fechaDeEntrega = fechaDeEntrega;
+        this.nombre_emp = nombre_emp;
+        this.calidad_req = calidad_req;
+        this.cantidad_productos = cantidad_productos;
+    }
+
+    
+    
+    
     public int getId_requerimiento() {
         return id_requerimiento;
     }

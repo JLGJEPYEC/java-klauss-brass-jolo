@@ -15,6 +15,7 @@ import java.util.Date;
  */
 public class gestion_fechas {
     
+        //convertir de java.util.date a string
         public static String obtenerFecha (Date d){
         String fecha = "";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -23,6 +24,7 @@ public class gestion_fechas {
         return fecha;
     }
         
+        //convertir de string a java.util.date
     public static Date obtenerFecha(String s) throws ParseException{
         Date d=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

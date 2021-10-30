@@ -5,11 +5,14 @@
  */
 package A;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,13 +72,63 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Date c = jDateChooser1.getDate();
+       //convertir de java.util.date a string
+        public static String obtenerFecha (Date d){
+        String fecha = "";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        fecha=sdf.format(d);
+        System.out.println(fecha);
+        return fecha;
+    }
+        
+        //convertir de string a java.util.date
+    public static Date obtenerFecha(String s) throws ParseException{
+        Date d=new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        d=sdf.parse(s);
+        return d;
+    }
+    
+    public static String FechaActual () {
+        Date d = new Date ();
+        String fecha = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        fecha=sdf.format(d);
+        System.out.println(fecha);
+        return fecha;
+    }
+    
+    
+    
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //estableciendo formato de hora
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        //util date acepta el valor que le sea igual
+        Date c = jDateChooser1.getDate();
         System.out.println("fecha seleccionada: "+ sdf.format(c));
+        
+        //cuando se cres desde constructor un date, da la fecha de hoy
         Date d = new Date();
         System.out.println("fecha actual: "+ sdf.format(d));
-        // TODO add your handling code here:
+        
+        
+        //util date y sql date no son lo mismo
+        java.sql.Date sqld = new java.sql.Date(d.getTime());
+        String kl =sqld.toString();
+        System.out.println(kl);
+        try {
+            System.out.println(obtenerFecha(kl).toString());
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+                
+                
+                
+                // TODO add your handling code here:
+;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

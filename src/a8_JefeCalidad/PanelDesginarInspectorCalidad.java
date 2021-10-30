@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package a8_JefeCalidad;
-
+import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
+import java.awt.BorderLayout;
 /**
  *
  * @author juan-jolo
@@ -33,62 +34,121 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        SeleccionarProduccionJC = new javax.swing.JButton();
+        SeleccionarInspectorJC = new javax.swing.JButton();
 
         jLabel1.setText("Designar inspector de calidad");
 
-        jLabel2.setText("ID Cotización");
+        jLabel2.setText("ID Producción");
 
         jLabel3.setText("Inspector");
 
         jButton1.setText("Desginar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        SeleccionarProduccionJC.setText("Seleccionar producción");
+        SeleccionarProduccionJC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarProduccionJCActionPerformed(evt);
+            }
+        });
+
+        SeleccionarInspectorJC.setText("Seleccionar inspector");
+        SeleccionarInspectorJC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarInspectorJCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(129, 129, 129))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(88, 88, 88))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(53, 53, 53))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SeleccionarProduccionJC, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SeleccionarInspectorJC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeleccionarProduccionJC))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeleccionarInspectorJC))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SeleccionarProduccionJCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarProduccionJCActionPerformed
+       PanelSeleccionarProduccion pn = new PanelSeleccionarProduccion();
+       pn.setSize(600,600);
+       pn.setLocation(10,10);
+       panelPrincipal.removeAll();
+       panelPrincipal.add(pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionarProduccionJCActionPerformed
+
+    private void SeleccionarInspectorJCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarInspectorJCActionPerformed
+       PanelSeleccionarInspectorJC pn = new PanelSeleccionarInspectorJC();
+       pn.setSize(600,600);
+       pn.setLocation(10,10);
+       panelPrincipal.removeAll();
+       panelPrincipal.add(pn,BorderLayout.CENTER);
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionarInspectorJCActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       panelPrincipal.removeAll();
+       panelPrincipal.revalidate();
+       panelPrincipal.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SeleccionarInspectorJC;
+    private javax.swing.JButton SeleccionarProduccionJC;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

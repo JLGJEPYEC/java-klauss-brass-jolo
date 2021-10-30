@@ -1,10 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a1_Cliente;
 
+
+/*
+PRIMER CASO DE USO IMPORTANTE DEL SISTEMA - 
+PROCESO DE NEGOCIO: GESTION DE REQUERIMIENTOS DEL CLIENTE
+
+*/
 import static a1_Cliente.PrincipalCliente.panelPrincipal;
 
 import com.mysql.cj.protocol.Resultset;
@@ -228,9 +230,12 @@ public class panelCrearRequerimiento extends javax.swing.JPanel {
                 Double.parseDouble(CantidadProd.getText()));
         r.guardarBBDD();
         JOptionPane.showMessageDialog(this, "requerimiento creado");
+        
+        //COPIAR Y PEGAR ESTA PARTE PARA REMOVER EL JPANEL DEL JFRAME
         panelPrincipal.removeAll();
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
+       //FIN DE LA PARTE A COPIAR Y PEGAR
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void calProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calProductoActionPerformed

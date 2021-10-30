@@ -29,7 +29,7 @@ public class PanelRol extends javax.swing.JPanel {
      */
     public PanelRol() {
         initComponents();
-        operarios_produccion=et.operarios_produccion();
+        operarios_produccion=et.TipoDeUsuariosDeseados("Operario Produccion");
     }
 
     /**
