@@ -3,6 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//cus completado
+
+
 package a8_JefeCalidad;
 import static a8_JefeCalidad.PrincipalJefeCalidad.panelPrincipal;
 import b_modelos.criteriosDeCalidad;
