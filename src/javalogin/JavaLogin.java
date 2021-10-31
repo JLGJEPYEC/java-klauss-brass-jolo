@@ -5,7 +5,7 @@
  */
 package javalogin;
 
-import a0_login.frmLogin;
+import a00_login.frmLogin;
 
 /**
  *
