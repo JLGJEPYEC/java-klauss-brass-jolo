@@ -131,7 +131,6 @@ CREATE TABLE `criteriocalidad` (
   `esAceptable` tinyint(4) NOT NULL,
   `idProduccion` int(11) NOT NULL,
   `IDInspector` int(11) DEFAULT NULL,
-  `estadoCriterio` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `observacion` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`idcriterioCalidad`),
   KEY `fk_criterioCalidad_Produccion1` (`idProduccion`),
@@ -147,7 +146,7 @@ CREATE TABLE `criteriocalidad` (
 
 LOCK TABLES `criteriocalidad` WRITE;
 /*!40000 ALTER TABLE `criteriocalidad` DISABLE KEYS */;
-INSERT INTO `criteriocalidad` VALUES (1,'la base debe estar lisa',0,1,NULL,'sin asignar','aun no es revizada por algun inspector'),(2,'la goma debe ser de alta calidad',0,1,NULL,'sin asignar','aun no es revizada por algun inspector'),(7,'crit 7',1,5,7,'aprobado','prueba 1'),(8,'crit 8',0,5,7,'rechazado','prueba 1'),(9,'crit 9',0,5,7,'rechazado','prueba 1'),(10,'crit 10',1,5,7,'aprobado','prueba 1'),(11,'cri 200',1,6,16,'aprobado','prueba 3. todos aprobados'),(12,'crit 201',1,6,16,'aprobado','prueba 3. todos aprobados'),(13,'crit 300',0,4,15,'rechazado','prueba 2'),(14,'crit 301',1,4,15,'aprobado','prueba 2'),(15,'crit 302',1,4,15,'aprobado','prueba 2');
+INSERT INTO `criteriocalidad` VALUES (1,'la base debe estar lisa',0,1,7,'aun no es revizada por algun inspector'),(2,'la goma debe ser de alta calidad',0,1,NULL,'aun no es revizada por algun inspector'),(7,'crit 7',0,5,NULL,'aun no es revizada por algun inspector'),(8,'crit 8',0,5,NULL,'aun no es revizada por algun inspector'),(9,'crit 9',0,5,NULL,'aun no es revizada por algun inspector'),(10,'crit 10',0,5,NULL,'aun no es revizada por algun inspector'),(11,'cri 200',0,6,16,'aun no es revizada por algun inspector'),(12,'crit 201',0,6,16,'aun no es revizada por algun inspector'),(13,'crit 300',0,4,15,'aun no es revizada por algun inspector'),(14,'crit 301',0,4,15,'aun no es revizada por algun inspector'),(15,'crit 302',0,4,15,'aun no es revizada por algun inspector');
 /*!40000 ALTER TABLE `criteriocalidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -577,4 +576,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-31 21:41:28
+-- Dump completed on 2021-10-30  9:50:23
