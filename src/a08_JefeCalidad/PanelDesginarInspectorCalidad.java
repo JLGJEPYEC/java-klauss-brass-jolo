@@ -158,7 +158,7 @@ public class PanelDesginarInspectorCalidad extends javax.swing.JPanel {
         int numInspector = Integer.parseInt(TextoI.getText());
         int numIDProduccion = Integer.parseInt(TextoIDP.getText());
         criteriosDeCalidad cc = new criteriosDeCalidad(numInspector,numIDProduccion);
-        cc.modificarBBDD_IDI();
+        cc.modificarBBDD_AsignarInspector();
         //reestruccturacion del jpanel
        panelPrincipal.removeAll();
        panelPrincipal.revalidate();

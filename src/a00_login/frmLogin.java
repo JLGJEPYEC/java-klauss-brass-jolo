@@ -20,9 +20,11 @@ import a03_AsistenteCompras.Principal_Asis;
 import a04_Proveedor.Principal_proveedor;
 import a05_OperarioAlmacen.PrincipalOpAlm;
 import a06_JefeCompras.PrincipalJefeCompras;
-import a07_InspectorCalidad.PrincipalInsCal;
+//import a07_InspectorCalidad.PrincipalInsCal;
 import a08_JefeCalidad.PrincipalJefeCalidad;
 import a09_JefeAreaContable.PrincipalJefeContable;
+import a07_InspectorCalidad.PrincipalInspectorCalidad;
+import b_metodos_conexion.extraccion_tablas;
 import javax.swing.JFrame;
 
 /**
@@ -215,7 +217,13 @@ public class frmLogin extends javax.swing.JFrame {
                 jf.setVisible(true);
                 this.setVisible(false);
             } else if (logueo.getTipoUsuario().equals("Inspector Calidad")) {
-                jf = new PrincipalInsCal();
+                extraccion_tablas et = new extraccion_tablas();
+                System.out.println(usuario +" : "+password);
+                int n = et.ObtenerIDUsuario(usuario, password);
+                System.out.println(n);
+                PrincipalInspectorCalidad pop = new PrincipalInspectorCalidad();
+                pop.setIDOperarioProduccion(n);
+                jf = pop;
                 jf.setVisible(true);
                 this.setVisible(false);
             } else if (logueo.getTipoUsuario().equals("Jefe Calidad")) {
@@ -226,7 +234,9 @@ public class frmLogin extends javax.swing.JFrame {
                 jf = new PrincipalJefeContable();
                 jf.setVisible(true);
                 this.setVisible(false);
-            } 
+            } else if(logueo.getTipoUsuario().equals("Operario Produccion")){//
+                System.out.println("en elaboracion");
+            }
             else {
                 JOptionPane.showMessageDialog(null,"Error en los datos de login","Login Error",JOptionPane.QUESTION_MESSAGE);
             }

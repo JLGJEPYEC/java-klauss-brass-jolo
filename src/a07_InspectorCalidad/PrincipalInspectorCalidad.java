@@ -3,19 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package a10_OperarioAlmacen;
+package a07_InspectorCalidad;
+
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author jolo
  */
-public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
+public class PrincipalInspectorCalidad extends javax.swing.JFrame {
+
+    private int IDOperarioProduccion = 0;
+    public static JPanel pn = null;
+    
+    /**
+     * @return the IDOperarioProduccion
+     */
+    public int getIDOperarioProduccion() {
+        return IDOperarioProduccion;
+    }
+
+    /**
+     * @param IDOperarioProduccion the IDOperarioProduccion to set
+     */
+    public void setIDOperarioProduccion(int IDOperarioProduccion) {
+        this.IDOperarioProduccion = IDOperarioProduccion;
+    }
+
 
     /**
      * Creates new form panelPrincipal
      */
-    public PrincipalOperarioAlmacen() {
+    public PrincipalInspectorCalidad() {
         initComponents();
+        /*
+        sector de muestra
+        setIDOperarioProduccion(16);
+        String detalle = "Inspector de Calidad - ID : "+getIDOperarioProduccion();
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(detalle));
+        */
+        
     }
 
     /**
@@ -31,9 +59,6 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
@@ -47,32 +72,20 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Operario de Almacen"));
+        jPanel3.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel3AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
-        jButton1.setText("Crear requerimiento nuevo");
+        jButton1.setText("Validar Criterios de Produccion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Gestion del pago de implentos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("Pagar pedido realizado");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Mantener pedido");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
             }
         });
 
@@ -82,11 +95,7 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -94,13 +103,7 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jButton1)
-                .addGap(60, 60, 60)
-                .addComponent(jButton3)
-                .addGap(60, 60, 60)
-                .addComponent(jButton6)
-                .addGap(52, 52, 52)
-                .addComponent(jButton4)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -116,8 +119,6 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(101, Short.MAX_VALUE))
         );
-
-        jPanel3.getAccessibleContext().setAccessibleName("Operario de Almacen");
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         panelPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -195,64 +196,22 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        /*panelNuevo pn = new panelNuevo();
+        //INVOCACION A PANEL VALIDAR CRITERIOS
+        //SI NO HAY, DERIVAR A NO HAY CRITERIOS
+        PanelValidarCriteriosProd p = new PanelValidarCriteriosProd(getIDOperarioProduccion());
+        if (p.getCPR()!=null){
+            pn = p;
+        }else{
+            pn = new PanelNoHayCriterios();
+        }
         pn.setSize(500,500);
         pn.setLocation(10,10);
-
         panelPrincipal.removeAll();
         panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
-        pn = new panelCrearRequerimiento();
-        pn.setSize(500,500);
-        pn.setLocation(10,10);
-
-        panelPrincipal.removeAll();
-        panelPrincipal.add(pn,BorderLayout.CENTER);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
-        */
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        /*pn = new panelGestionPagoImplemento();
-        pn.setSize(500,500);
-        pn.setLocation(10,10);
-
-        panelPrincipal.removeAll();
-        panelPrincipal.add(pn,BorderLayout.CENTER);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
-        */
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        /*pn = new panelPagarPedidoRealisado();
-        pn.setSize(500,500);
-        pn.setLocation(10,10);
-
-        panelPrincipal.removeAll();
-        panelPrincipal.add(pn,BorderLayout.CENTER);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
-        */
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        /*
-        pn = new panelManterPedido();
-        pn.setSize(500,500);
-        pn.setLocation(10,10);
-
-        panelPrincipal.removeAll();
-        panelPrincipal.add(pn,BorderLayout.CENTER);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
-        */
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -267,6 +226,14 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
         }
         */
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jPanel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel3AncestorAdded
+        //sector permanente, ya con uso de login. deshabilitar cuando se hagan pruebas
+       // setIDOperarioProduccion(15);
+        String detalle = "Inspector de Calidad - ID : "+getIDOperarioProduccion();
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(detalle));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -285,21 +252,27 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalOperarioAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalInspectorCalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalOperarioAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalInspectorCalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalOperarioAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalInspectorCalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalOperarioAlmacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalInspectorCalidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalOperarioAlmacen().setVisible(true);
+                new PrincipalInspectorCalidad().setVisible(true);
             }
         });
     }
@@ -307,9 +280,6 @@ public class PrincipalOperarioAlmacen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

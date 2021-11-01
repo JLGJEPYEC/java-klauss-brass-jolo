@@ -193,13 +193,6 @@ public class PanelSeleccionarProduccion extends javax.swing.JPanel {
        panelPrincipal.revalidate();
        panelPrincipal.repaint();
         
-        
-        PrincipalJefeCalidad.pn.setSize(500,500);
-       PrincipalJefeCalidad.pn.setLocation(10,10);       
-       panelPrincipal.removeAll();
-       panelPrincipal.add(PrincipalJefeCalidad.pn,BorderLayout.CENTER);
-       panelPrincipal.revalidate();
-       panelPrincipal.repaint();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

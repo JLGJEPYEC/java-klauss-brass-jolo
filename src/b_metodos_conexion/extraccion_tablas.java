@@ -16,6 +16,8 @@ import b_modelos.Produccion;
 import b_modelos_para_tablas.ProduccionVSRequerimientos;
 import java.util.Date;
 import b_metodos_conexion.gestion_fechas;
+import b_modelos_para_tablas.CriteriosVprodVreq;
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 
 /**
  *
@@ -88,7 +90,7 @@ public class extraccion_tablas {
     
     
     
-        public ArrayList<requerimiento> elementos_requerimiento (){
+public ArrayList<requerimiento> elementos_requerimiento (){
         int n=0;
         ArrayList <requerimiento> lista_reqs = new ArrayList<requerimiento>();
         requerimiento temp_req = null;
@@ -242,4 +244,67 @@ public class extraccion_tablas {
         }
         return lista_pr;
     }
+
+    
+      
+    public ArrayList<CriteriosVprodVreq> lista_criterios_prod_req(int idinspector){
+        ArrayList<CriteriosVprodVreq> acpr = new ArrayList<CriteriosVprodVreq>();
+        CriteriosVprodVreq cpr = null;
+        
+        try{
+           Conexion c = new Conexion();
+           ps = c.getConexion().prepareStatement("select "
+                   + "idcriterioCalidad, nombreCrit, esAceptable, nombreReq, descripcion, fechaEntrega "
+                   + "from criteriocalidad "
+                   + "inner join produccion on criteriocalidad.idProduccion = produccion.idProduccion "
+                   + "inner join requerimiento on produccion.idrequerimiento = requerimiento.idrequerimiento "
+                   + "where IDInspector= "+String.valueOf(idinspector)+" and esAceptable= 0");
+           rs = ps.executeQuery();
+           boolean verificador = rs.next();
+           if (!verificador){
+               acpr = null;
+           }else{
+               
+                while(verificador){
+                    int p0 = rs.getInt(1);
+                    String p1 = rs.getString(2);
+                    boolean p2 = rs.getBoolean(3);
+                    String p3 = rs.getString(4);
+                    String p4 = rs.getString(5);
+                    String p5 = rs.getString(6);
+                    cpr = new CriteriosVprodVreq(p0,p1, p2, p3, p4, p5);
+                    acpr.add(cpr);
+                    verificador = rs.next();
+                } 
+                
+           }
+   
+           c.Desconectar();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       
+        return acpr;
+    }
+    
+    
+    public int ObtenerIDUsuario (String email, String pass){
+        int n=0;
+        try{
+            Conexion c = new Conexion();
+           ps = c.getConexion().prepareStatement("select idUser "
+                   + "from usuario "
+                   + "where Email = \""+email+"\" and Contraseña = "+pass);
+           rs = ps.executeQuery();
+           while(rs.next()){
+               n=rs.getInt(1); 
+           } 
+           c.Desconectar();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+        return n;
+    }
+    
+   
 }
