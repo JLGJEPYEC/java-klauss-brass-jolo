@@ -19,6 +19,12 @@ import static a07_InspectorCalidad.PrincipalInspectorCalidad.panelPrincipal;
  *
  * @author jolo
  */
+/*
+CUARTO CASO DE USO IMPORTANTE DEL SISTEMA - 
+PROCESO DE NEGOCIO: GESTION DE REQUERIMIENTOS DEL CLIENTE
+*/
+
+
 public class PanelValidarCriteriosProd extends javax.swing.JPanel {
     ArrayList<CriteriosVprodVreq> cpr = null;
     extraccion_tablas et = new extraccion_tablas();

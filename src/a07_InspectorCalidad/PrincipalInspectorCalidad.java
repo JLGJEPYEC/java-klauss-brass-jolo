@@ -12,6 +12,21 @@ import javax.swing.JPanel;
  *
  * @author jolo
  */
+
+/*
+creacion de modelo criteriodecalidad
+
+se modificó la tabla criteriocalidad de la bbdd para añadirle
+dos nuevos parametros: OBSERVACION, ESTADOCRITERIO Y ID INSPECTOR
+son cuatro estados: 
+            -sin asignar: al agregar, solo poner este estado. esaceptable:0 
+            -asignado: cuando tiene un inspector pero sin revizar aun. esaceptable:0 
+            -rechazado: cuando inspector detecta problemas, rechaza. esaceptable:0 
+            -aprobado: cuando inspector reviza y comfirma.esaceptable:1
+se añadio nueva funcionalidad para tener solamente el id del usuario
+*/
+
+
 public class PrincipalInspectorCalidad extends javax.swing.JFrame {
 
     private int IDOperarioProduccion = 0;
