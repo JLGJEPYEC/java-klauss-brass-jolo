@@ -5,6 +5,11 @@
  */
 package a09_JefeAreaContable;
 
+/*
+QUINTO CASO DE USO IMPORTANTE DEL SISTEMA - 
+PROCESO DE NEGOCIO: MANTENER USUARIOS / GESTION DE PAGOS DE RRHH
+*/
+
 import static a09_JefeAreaContable.PrincipalJefeContable.panelPrincipal;
 import b_metodos_conexion.extraccion_tablas;
 import b_modelos.requerimiento;
