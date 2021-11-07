@@ -110,6 +110,69 @@ public ArrayList<requerimiento> elementos_requerimiento (){
         return lista_reqs;
     }
 
+
+public ArrayList<user> usuarios_lista (){
+        int n=0;
+        ArrayList <user> lista_u = new ArrayList<user>();
+        user temp_user = null;
+        try{
+            Conexion c = new Conexion();
+            ps = c.getConexion().prepareStatement("select idUser,Nombre1,"
+                    + "Nombre2,ApellidoP,ApellidoM, "
+                    + "Email,tipoUsuario, Sueldo, TipoContrato "
+                    + "from usuario");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                temp_user = new user();
+                temp_user.setId_user(rs.getInt(1));
+                temp_user.setNombre1(rs.getString(2));
+                temp_user.setNombre2(rs.getString(3));
+                temp_user.setAp_p(rs.getString(4));
+                temp_user.setAp_m(rs.getString(5));
+                temp_user.setEmail(rs.getString(6));
+                temp_user.setTipo_usuario(rs.getString(7));
+                temp_user.setSueldo(rs.getFloat(8));
+                temp_user.setTipo_contrato(rs.getString(9));
+                //temp_user=new requerimiento(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getString(4));
+                lista_u.add(temp_user);
+            }
+            c.Desconectar();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return lista_u;
+    }
+
+public user UsuarioDeseado (int ID){
+    user temp_user = null;
+    try{
+            Conexion c = new Conexion();
+            ps = c.getConexion().prepareStatement("select * from usuario where idUser = ?");
+            ps.setInt(1, ID);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                temp_user = new user();
+                temp_user.setId_user(rs.getInt(1));
+                temp_user.setNombre1(rs.getString(2));
+                temp_user.setNombre2(rs.getString(3));
+                temp_user.setAp_p(rs.getString(4));
+                temp_user.setAp_m(rs.getString(5));
+                temp_user.setPassword(rs.getString(6));
+                temp_user.setSueldo(rs.getFloat(7));
+                temp_user.setTipo_contrato(rs.getString(8));
+                temp_user.setEmail(rs.getString(9));
+                temp_user.setTipo_usuario(rs.getString(10));
+            }
+            c.Desconectar();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    return temp_user;
+}
+
+
         public ArrayList <categorias_prod> categorias(){
         int n=0;
         ArrayList <categorias_prod> lista_cats = new ArrayList<categorias_prod>();

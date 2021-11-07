@@ -8,6 +8,7 @@ package a09_JefeAreaContable;
 import a00_login.frmLogin;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,6 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class PrincipalJefeContable extends javax.swing.JFrame {
 
+    
+    public static JPanel pn = null;
     /**
      * Creates new form PanelJefeContable
      */
@@ -50,11 +53,11 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 625, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGap(0, 603, Short.MAX_VALUE)
         );
 
         jButton10.setText("Cerrar Sesión ");
@@ -157,34 +160,34 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(760, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addGap(21, 21, 21))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton10))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton10)
+                .addContainerGap(644, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addContainerGap(52, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(107, 107, 107)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(94, 94, 94)))
-                    .addContainerGap()))
+                            .addGap(105, 105, 105))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)))))
         );
 
         pack();
@@ -203,7 +206,7 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        PanelregFactura pn = new PanelregFactura();
+        pn = new PanelregFactura();
         pn.setSize(500,500);
         pn.setLocation(10,10);
         panelPrincipal.removeAll();
@@ -214,19 +217,19 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        PanelRegGanancia mo = new PanelRegGanancia();
-        mo.setSize(500,500);
-        mo.setLocation(10,10);
+        pn = new PanelRegGanancia();
+        pn.setSize(500,500);
+        pn.setLocation(10,10);
         panelPrincipal.removeAll();
-        panelPrincipal.add(mo,BorderLayout.CENTER);
+        panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        PanelGestionRRHH pn = new PanelGestionRRHH();
-        pn.setSize(500,300);
-        pn.setLocation(10,10);
+        pn = new PanelGestionRRHH();
+        pn.setSize(panelPrincipal.getWidth(),panelPrincipal.getHeight());
+        pn.setLocation(0,0);
         panelPrincipal.removeAll();
         panelPrincipal.add(pn,BorderLayout.CENTER);
         panelPrincipal.revalidate();
@@ -235,7 +238,7 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        PanelGastosFijos pn = new PanelGastosFijos();
+        pn = new PanelGastosFijos();
         pn.setSize(500,500);
         pn.setLocation(10,10);
         panelPrincipal.removeAll();
@@ -246,7 +249,7 @@ public class PrincipalJefeContable extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        PanelActaContable pn = new PanelActaContable();
+        pn = new PanelActaContable();
         pn.setSize(500,500);
         pn.setLocation(10,10);
         panelPrincipal.removeAll();
